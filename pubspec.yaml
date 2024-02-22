@@ -99,8 +99,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - packages/social/assets/images/
-    - packages/social/assets/fonts/
     - packages/social/assets/images/like.svg
     - packages/social/assets/images/like_fill.svg
     - packages/social/assets/images/dislike.svg
