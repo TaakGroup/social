@@ -20,7 +20,7 @@ class ShareExperienceTopicPage extends StatelessWidget {
     return WillPopScope(
       onWillPop: () {
         Get.back();
-        return Future(() => true);
+        return Future(() => false);
       },
       child: Scaffold(
         bottomNavigationBar: ShareExperienceInput(

@@ -35,7 +35,7 @@ class ShareExperienceApp extends StatelessWidget {
       builder: (context, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
         child: ResponsiveWrapper.builder(
-          maxWidth: 475.0,
+          maxWidth: 480.0,
           AnnotatedRegion<SystemUiOverlayStyle>(
             value: SystemUiOverlayStyle(
               statusBarColor: Colors.transparent,
