@@ -17,9 +17,11 @@ class ShareExperienceTopicPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: true,
-      onPopInvoked: (_) => Get.back(),
+    return WillPopScope(
+      onWillPop: () {
+        Get.back();
+        return Future(() => true);
+      },
       child: Scaffold(
         bottomNavigationBar: ShareExperienceInput(
           onTap: TopicController.to.newExperience,
