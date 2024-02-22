@@ -19,36 +19,42 @@ class ShareExperienceApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Share Experience",
-      onInit: App.onAppStart(context, token),
-      initialBinding: InitialBindings(),
-      theme: ImpoTheme.light,
-      themeMode: ThemeMode.light,
-      locale: AppSetting.culture.locale,
-      textDirection: AppSetting.culture.textDirection,
-      translations: Messages(),
-      getPages: Routs.routs,
-      initialRoute: AppRoutes.shareExperience,
-      routingCallback: HandleFailureMixin.onRouteChange,
-      builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-        child: ResponsiveWrapper.builder(
-          maxWidth: 480.0,
-          AnnotatedRegion<SystemUiOverlayStyle>(
-            value: SystemUiOverlayStyle(
-              statusBarColor: Colors.transparent,
-              statusBarIconBrightness: context.isDarkMode ? Brightness.light : Brightness.dark,
-              statusBarBrightness: context.isDarkMode ? Brightness.dark : Brightness.light,
+    return WillPopScope(
+      onWillPop: () {
+        Get.back();
+        return Future(() => false);
+      },
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Share Experience",
+        onInit: App.onAppStart(context, token),
+        initialBinding: InitialBindings(),
+        theme: ImpoTheme.light,
+        themeMode: ThemeMode.light,
+        locale: AppSetting.culture.locale,
+        textDirection: AppSetting.culture.textDirection,
+        translations: Messages(),
+        getPages: Routs.routs,
+        initialRoute: AppRoutes.shareExperience,
+        routingCallback: HandleFailureMixin.onRouteChange,
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          child: ResponsiveWrapper.builder(
+            maxWidth: 480.0,
+            AnnotatedRegion<SystemUiOverlayStyle>(
+              value: SystemUiOverlayStyle(
+                statusBarColor: Colors.transparent,
+                statusBarIconBrightness: context.isDarkMode ? Brightness.light : Brightness.dark,
+                statusBarBrightness: context.isDarkMode ? Brightness.dark : Brightness.light,
+              ),
+              child: child!,
             ),
-            child: child!,
+            defaultScale: true,
+            breakpoints: const [
+              ResponsiveBreakpoint.autoScale(360, name: MOBILE),
+              ResponsiveBreakpoint.resize(480, name: TABLET),
+            ],
           ),
-          defaultScale: true,
-          breakpoints: const [
-            ResponsiveBreakpoint.autoScale(360, name: MOBILE),
-            ResponsiveBreakpoint.resize(480, name: TABLET),
-          ],
         ),
       ),
     );
