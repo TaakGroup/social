@@ -109,6 +109,9 @@ flutter:
     - packages/social/assets/images/arrow_right.svg
     - packages/social/assets/images/gallery_add.svg
     - packages/social/assets/images/message_question.svg
+    - packages/social/assets/images/tickets.webp
+    - packages/social/assets/images/server_failure.webp
+    - packages/social/assets/images/network_failure.webp
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
